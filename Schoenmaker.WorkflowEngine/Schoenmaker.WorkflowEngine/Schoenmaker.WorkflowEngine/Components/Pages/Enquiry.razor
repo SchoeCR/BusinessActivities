@@ -1,0 +1,44 @@
+﻿@page "/enquiry"
+@rendermode InteractiveServer
+@inject ILogger<Enquiry> Logger
+
+<PageTitle>Enquiry</PageTitle>
+
+<h3>Enquiry</h3>
+
+<EditForm Model="Model" OnSubmit="Submit" FormName="NewEnquiry">
+    <div>
+        <label>
+            Date:
+            <InputDate @bind-Value="Model!.EnquiryDate" />
+        </label>
+        <label>
+            Description:
+            <InputText @bind-Value="Model!.EnquiryDescription" />
+        </label>
+    </div>
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</EditForm>
+
+@code {
+    [SupplyParameterFromForm]
+    private EnquiryDto? Model { get; set; }
+
+    protected override void OnInitialized() => Model ??= new();
+
+    private void Submit()
+    {
+        Model!.EnquiryId = Guid.NewGuid().ToString();
+        Logger.LogInformation("Id = {Id}", Model?.EnquiryId);
+    }
+
+    public class EnquiryDto
+    {
+        public string? EnquiryId { get; set; }
+        public DateOnly? EnquiryDate { get; set; }
+        public string? EnquiryDescription { get; set; }
+
+    }
+}

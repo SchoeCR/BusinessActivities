@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schoenmaker.WorkflowEngine", "Schoenmaker.WorkflowEngine\Schoenmaker.WorkflowEngine\Schoenmaker.WorkflowEngine.csproj", "{68C73D0F-5640-4FB2-B0FC-713685C34E29}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Schoenmaker.WorkflowEngine.Client", "Schoenmaker.WorkflowEngine\Schoenmaker.WorkflowEngine.Client\Schoenmaker.WorkflowEngine.Client.csproj", "{080D80EC-F529-454A-9785-204503165AD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{68C73D0F-5640-4FB2-B0FC-713685C34E29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68C73D0F-5640-4FB2-B0FC-713685C34E29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68C73D0F-5640-4FB2-B0FC-713685C34E29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68C73D0F-5640-4FB2-B0FC-713685C34E29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{080D80EC-F529-454A-9785-204503165AD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{080D80EC-F529-454A-9785-204503165AD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{080D80EC-F529-454A-9785-204503165AD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{080D80EC-F529-454A-9785-204503165AD4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {12EDBF62-3372-4FC7-BB50-C37580A9B183}
+	EndGlobalSection
+EndGlobal
