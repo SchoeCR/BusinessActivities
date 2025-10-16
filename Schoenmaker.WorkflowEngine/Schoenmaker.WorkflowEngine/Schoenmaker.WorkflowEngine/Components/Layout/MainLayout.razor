@@ -1,4 +1,5 @@
 ﻿@inherits LayoutComponentBase
+@inject NavigationManager Navigation
 
 <div class="page">
     <div class="sidebar">
@@ -7,6 +8,12 @@
 
     <main>
         <div class="top-row px-4">
+            @if (!IsHomePage)
+            {
+                <img src="RESLOGO01_jpeg.jpg"
+                    style="height:40px; margin-right:auto"
+                    alt="Resolute Logo"/>
+            }
             <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
         </div>
 
@@ -17,7 +24,22 @@
 </div>
 
 <div id="blazor-error-ui">
+    <environment include="Staging,Production">
+        An error has occurred. This application may no longer respond until reloaded.
+    </environment>
+    <environment include="Development">
+        An unhandled error has occurred. See browser dev tools for details.
+    </environment>
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+
+<div id="blazor-error-ui">
     An unhandled error has occurred.
     <a href="" class="reload">Reload</a>
     <a class="dismiss">🗙</a>
 </div>
+
+@code {
+    private bool IsHomePage => Navigation.Uri.EndsWith(value: "/");
+}
