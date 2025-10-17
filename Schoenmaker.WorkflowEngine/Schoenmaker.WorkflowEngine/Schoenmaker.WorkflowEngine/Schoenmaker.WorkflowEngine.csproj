@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Schoenmaker.WorkflowEngine.Client\Schoenmaker.WorkflowEngine.Client.csproj" />
+    <PackageReference Include="Blazor.Bootstrap" Version="3.4.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.7" />
   </ItemGroup>
 

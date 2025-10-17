@@ -7,12 +7,19 @@
     </div>
 
     <main>
-        <div class="top-row px-4">
-            @if (!IsHomePage)
+        <div class="top-row px-4 d-flex justify-content-between align-items-center">
+            <img src="RESLOGO01_jpeg.jpg" alt="Resolute Logo" style="height:30px;"/>
+            @if (IsEnquiryPage)
             {
-                <img src="RESLOGO01_jpeg.jpg"
-                    style="height:40px; margin-right:auto"
-                    alt="Resolute Logo"/>
+                <div class="d-flex">
+                    <Tabs EnableFadeEffect="true">
+                        <Tab Title="New" Active="true">
+                            <Content>
+                                <a href="/enquiry">New Enquiry</a>
+                            </Content>
+                        </Tab>
+                    </Tabs>
+                </div>
             }
             <a href="https://learn.microsoft.com/aspnet/core/" target="_blank">About</a>
         </div>
@@ -42,4 +49,6 @@
 
 @code {
     private bool IsHomePage => Navigation.Uri.EndsWith(value: "/");
+    private bool IsEnquiryPage => Navigation.Uri.EndsWith(value: "/enquiry");
+    
 }

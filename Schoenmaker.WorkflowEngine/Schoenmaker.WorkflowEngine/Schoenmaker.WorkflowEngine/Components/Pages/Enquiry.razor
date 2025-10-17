@@ -4,18 +4,49 @@
 
 <PageTitle>Enquiry</PageTitle>
 
-<h3>Enquiry</h3>
+<h3 class="fw-bold">Enquiry</h3>
 
 <EditForm Model="Model" OnSubmit="Submit" FormName="NewEnquiry">
-    <div>
-        <label>
-            Date:
-            <InputDate @bind-Value="Model!.EnquiryDate" />
-        </label>
-        <label>
-            Description:
-            <InputText @bind-Value="Model!.EnquiryDescription" />
-        </label>
+    <div style="display:flex; gap:3rem; flex-wrap:wrap;">
+        <!-- Left column -->
+        <div style="flex:0.5; min-width:300px;">
+            <div class="mb-3">
+                <label for="enquiryDate" class="form-label fw-bold">Date:</label>
+                <DateInput Id="enquiryDate" @bind-Value="Model!.enquiryDate" Placeholder="Enter Date"/>
+            </div>
+            <div class="mb-3">
+                <label for="enquiryMethod" class="form-label fw-bold">Method:</label>
+                <InputSelect id="enquiryMethod" class="form-select" @bind-Value="Model!.enquiryMethod">
+                    <option value="">Select Method</option>
+                    <option value="Phone">Phone</option>
+                    <option value="Email">Email</option>
+                    <option value="Walk-in">Walk-in</option>
+                    <option value="Other">Other</option>
+                </InputSelect>
+            </div>
+        </div>
+        <div style="flex:1; min-width:300px;">
+            <div class="mb-3">
+                <label for="enquiryDiscipline" class="form-label fw-bold">Discipline:</label>
+                <InputSelect id="enquiryDiscipline" class="form-select" @bind-Value="Model!.enquiryDiscipline">
+                    <option value="">Select Discipline</option>
+                    <option value="Fire">Fire</option>
+                    <option value="Acoustics">Acoustics</option>
+                    <option value="Smoke">Smoke</option>
+                    <option value="Assessment-Fire">Assessment-Fire</option>
+                    <option value="Assessment-Smoke">Assessment-Smoke</option>
+                    <option value="Other">Other</option>
+                </InputSelect>
+            </div>
+            <div class="mb-3">
+                <label for="enquiryMethod" class="form-label fw-bold">Method/Standard:</label>
+                
+            </div>
+            <div class="mb-3">
+                <label for="enquiryMessage" class="form-label fw-bold">Message:</label>
+                <InputTextArea id="enquiryMessage" class="form-control" @bind-Value="Model!.enquiryMessage" Placeholder="Enter message" style="min-height:250px;" />
+            </div>
+        </div>
     </div>
     <div>
         <button type="submit">Submit</button>
@@ -30,15 +61,24 @@
 
     private void Submit()
     {
-        Model!.EnquiryId = Guid.NewGuid().ToString();
-        Logger.LogInformation("Id = {Id}", Model?.EnquiryId);
+        Model!.enquiryId = Guid.NewGuid().ToString();
+        Logger.LogInformation("Id = {Id}", Model?.enquiryId);
     }
 
     public class EnquiryDto
     {
-        public string? EnquiryId { get; set; }
-        public DateOnly? EnquiryDate { get; set; }
-        public string? EnquiryDescription { get; set; }
+        public string? enquiryId { get; set; }
+        public DateOnly enquiryDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+        public string? enquiryDiscipline { get; set; }
+        public string? enquiryMethod { get; set; }
+        public string? enquiryAusEquivalent { get; set; }
+        public int? enquiryRevenue { get; set; }
+        public string? enquiryMessage { get; set; }
+        public string? customerID { get; set; }
+        public string? enquiryStatus { get; set; }
+        public string? enquiryOutcome { get; set; }
+        public string? enquiryComments { get; set; }
 
     }
+    DateOnly today = DateOnly.FromDateTime(DateTime.Now);
 }
