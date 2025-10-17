@@ -12,7 +12,7 @@
         <div style="flex:0.5; min-width:300px;">
             <div class="mb-3">
                 <label for="enquiryDate" class="form-label fw-bold">Date:</label>
-                <DateInput Id="enquiryDate" @bind-Value="Model!.enquiryDate" Placeholder="Enter Date"/>
+                <DateInput Id="enquiryDate" @bind-Value="Model!.enquiryDate" Max="@today" Placeholder="Please enter date of enquiry" />
             </div>
             <div class="mb-3">
                 <label for="enquiryMethod" class="form-label fw-bold">Method:</label>
@@ -39,12 +39,23 @@
                 </InputSelect>
             </div>
             <div class="mb-3">
-                <label for="enquiryMethod" class="form-label fw-bold">Method/Standard:</label>
-                
+                <label for="enquiryStandard" class="form-label fw-bold">Method/Standard:</label>
+                <div style="display:flex; gap:1rem;">
+                    <div style="flex:1;">
+                        <TextInput Id="enquiryStandard" class="form-control" @bind-Value="Model!.enquiryStandard" Placeholder="Enter enquiry method/standard" />
+                    </div>
+                    <div style="flex:1;">
+                        <TextInput Id="enquiryAusEquivalent" class="form-control" @bind-Value="Model!.enquiryAusEquivalent" Placeholder="Enter Australian equivalent standard" />
+                    </div>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="enquiryRevenue" class="form-label fw-bold">Estimated Revenue (AUD):</label>                
+                <CurrencyInput Id="enquiryRevenue" Class="form-control" @bind-Value="Model!.enquiryRevenue" Placeholder="Enter estimated revenue (AUD)" />
             </div>
             <div class="mb-3">
                 <label for="enquiryMessage" class="form-label fw-bold">Message:</label>
-                <InputTextArea id="enquiryMessage" class="form-control" @bind-Value="Model!.enquiryMessage" Placeholder="Enter message" style="min-height:250px;" />
+                <TextAreaInput id="enquiryMessage" class="form-control" @bind-Value="Model!.enquiryMessage" Placeholder="Enter message" style="min-height:250px;" />
             </div>
         </div>
     </div>
@@ -68,9 +79,10 @@
     public class EnquiryDto
     {
         public string? enquiryId { get; set; }
-        public DateOnly enquiryDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
+        public DateOnly? enquiryDate { get; set; } = DateOnly.FromDateTime(DateTime.Now);
         public string? enquiryDiscipline { get; set; }
         public string? enquiryMethod { get; set; }
+        public string? enquiryStandard { get; set; }
         public string? enquiryAusEquivalent { get; set; }
         public int? enquiryRevenue { get; set; }
         public string? enquiryMessage { get; set; }
