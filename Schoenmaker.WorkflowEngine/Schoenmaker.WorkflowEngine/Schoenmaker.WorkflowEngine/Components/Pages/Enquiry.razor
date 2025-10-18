@@ -24,6 +24,16 @@
                     <option value="Other">Other</option>
                 </InputSelect>
             </div>
+            <div class="mb-3">
+                <label for="customerID" class="form-label fw-bold">Customer:</label>
+                <InputSelect id="customerID" class="form-select" @bind-Value="Model!.customerID">
+                    <option value="">Select Customer</option>
+                    <option value="CUST001">CUST001 - Acme Corp</option>
+                    <option value="CUST002">CUST002 - Globex Inc</option>
+                    <option value="CUST003">CUST003 - Soylent Co</option>
+                    <option value="CUST004">CUST004 - Initech</option>
+                </InputSelect>
+            </div>
         </div>
         <div style="flex:1; min-width:300px;">
             <div class="mb-3">
